@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SceneKit
 
 class PointsView : UIView {
 
@@ -39,9 +40,11 @@ class PointsView : UIView {
 
 class ViewController: UIViewController {
 
-  var pointsView : PointsView {
-    return self.view as PointsView
-  }
+  var cutter : SCNShape?
+    
+  var pointsView = PointsView()
+
+  var extrusionView = SCNView(frame: CGRectZero, options: nil)
 
   override init() {
       return super.init()
@@ -57,14 +60,19 @@ class ViewController: UIViewController {
 
   var points : [CGPoint] = []
 
-  override func loadView() {
-    self.view = PointsView()
-  }
-
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.view.backgroundColor = UIColor.whiteColor()
+    pointsView.backgroundColor = UIColor.whiteColor()
+    
+    pointsView.frame = self.view.frame
+    pointsView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+    self.view.addSubview(pointsView)
+
   }
+    
+    override func viewWillLayoutSubviews() {
+    
+    }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
@@ -94,9 +102,42 @@ class ViewController: UIViewController {
       s += NSStringFromCGPoint(t)
     }
     println("Touch points" + s)
+    println(strings.count)
 
     pointsView.inProgress = false
     pointsView.points = points
+    
+    //Create our shape
+    cutter = SCNShape(path: bezierPathFromPoints(), extrusionDepth: 10.0)
+
+    let scene = SCNScene()
+
+    var cutterNode = SCNNode(geometry: cutter)
+    
+    scene.rootNode.addChildNode(cutterNode)
+    
+    extrusionView.frame = self.view.bounds
+    extrusionView.backgroundColor = UIColor.blueColor()
+    extrusionView.scene = scene
+    
+    pointsView.removeFromSuperview()
+    self.view.addSubview(extrusionView)
+
+  }
+    
+    
+  func bezierPathFromPoints() -> UIBezierPath {
+    
+    var path = UIBezierPath()
+        
+    if points.count == 0 {
+        return path
+    }
+    
+    for p in points {
+        path.addLineToPoint(p)
+    }
+    return path
   }
 
 }

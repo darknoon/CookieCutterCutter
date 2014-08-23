@@ -1,0 +1,398 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		99CCA72B19A9269B00180D3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CCA72A19A9269B00180D3A /* AppDelegate.swift */; };
+		99CCA72D19A9269B00180D3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CCA72C19A9269B00180D3A /* ViewController.swift */; };
+		99CCA73219A9269B00180D3A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99CCA73119A9269B00180D3A /* Images.xcassets */; };
+		99CCA73E19A9269B00180D3A /* CookieCutterCutterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CCA73D19A9269B00180D3A /* CookieCutterCutterTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		99CCA73819A9269B00180D3A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99CCA71D19A9269B00180D3A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99CCA72419A9269B00180D3A;
+			remoteInfo = CookieCutterCutter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		99CCA72519A9269B00180D3A /* CookieCutterCutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookieCutterCutter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		99CCA72919A9269B00180D3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99CCA72A19A9269B00180D3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		99CCA72C19A9269B00180D3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		99CCA73119A9269B00180D3A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		99CCA73719A9269B00180D3A /* CookieCutterCutterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookieCutterCutterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		99CCA73C19A9269B00180D3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99CCA73D19A9269B00180D3A /* CookieCutterCutterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieCutterCutterTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		99CCA72219A9269B00180D3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99CCA73419A9269B00180D3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		99CCA71C19A9269B00180D3A = {
+			isa = PBXGroup;
+			children = (
+				99CCA72719A9269B00180D3A /* CookieCutterCutter */,
+				99CCA73A19A9269B00180D3A /* CookieCutterCutterTests */,
+				99CCA72619A9269B00180D3A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		99CCA72619A9269B00180D3A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				99CCA72519A9269B00180D3A /* CookieCutterCutter.app */,
+				99CCA73719A9269B00180D3A /* CookieCutterCutterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		99CCA72719A9269B00180D3A /* CookieCutterCutter */ = {
+			isa = PBXGroup;
+			children = (
+				99CCA72A19A9269B00180D3A /* AppDelegate.swift */,
+				99CCA72C19A9269B00180D3A /* ViewController.swift */,
+				99CCA73119A9269B00180D3A /* Images.xcassets */,
+				99CCA72819A9269B00180D3A /* Supporting Files */,
+			);
+			path = CookieCutterCutter;
+			sourceTree = "<group>";
+		};
+		99CCA72819A9269B00180D3A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				99CCA72919A9269B00180D3A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		99CCA73A19A9269B00180D3A /* CookieCutterCutterTests */ = {
+			isa = PBXGroup;
+			children = (
+				99CCA73D19A9269B00180D3A /* CookieCutterCutterTests.swift */,
+				99CCA73B19A9269B00180D3A /* Supporting Files */,
+			);
+			path = CookieCutterCutterTests;
+			sourceTree = "<group>";
+		};
+		99CCA73B19A9269B00180D3A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				99CCA73C19A9269B00180D3A /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		99CCA72419A9269B00180D3A /* CookieCutterCutter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99CCA74119A9269B00180D3A /* Build configuration list for PBXNativeTarget "CookieCutterCutter" */;
+			buildPhases = (
+				99CCA72119A9269B00180D3A /* Sources */,
+				99CCA72219A9269B00180D3A /* Frameworks */,
+				99CCA72319A9269B00180D3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CookieCutterCutter;
+			productName = CookieCutterCutter;
+			productReference = 99CCA72519A9269B00180D3A /* CookieCutterCutter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		99CCA73619A9269B00180D3A /* CookieCutterCutterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99CCA74419A9269B00180D3A /* Build configuration list for PBXNativeTarget "CookieCutterCutterTests" */;
+			buildPhases = (
+				99CCA73319A9269B00180D3A /* Sources */,
+				99CCA73419A9269B00180D3A /* Frameworks */,
+				99CCA73519A9269B00180D3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				99CCA73919A9269B00180D3A /* PBXTargetDependency */,
+			);
+			name = CookieCutterCutterTests;
+			productName = CookieCutterCutterTests;
+			productReference = 99CCA73719A9269B00180D3A /* CookieCutterCutterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		99CCA71D19A9269B00180D3A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				TargetAttributes = {
+					99CCA72419A9269B00180D3A = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					99CCA73619A9269B00180D3A = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 99CCA72419A9269B00180D3A;
+					};
+				};
+			};
+			buildConfigurationList = 99CCA72019A9269B00180D3A /* Build configuration list for PBXProject "CookieCutterCutter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 99CCA71C19A9269B00180D3A;
+			productRefGroup = 99CCA72619A9269B00180D3A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				99CCA72419A9269B00180D3A /* CookieCutterCutter */,
+				99CCA73619A9269B00180D3A /* CookieCutterCutterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		99CCA72319A9269B00180D3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99CCA73219A9269B00180D3A /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99CCA73519A9269B00180D3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		99CCA72119A9269B00180D3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99CCA72D19A9269B00180D3A /* ViewController.swift in Sources */,
+				99CCA72B19A9269B00180D3A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99CCA73319A9269B00180D3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99CCA73E19A9269B00180D3A /* CookieCutterCutterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		99CCA73919A9269B00180D3A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 99CCA72419A9269B00180D3A /* CookieCutterCutter */;
+			targetProxy = 99CCA73819A9269B00180D3A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		99CCA73F19A9269B00180D3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		99CCA74019A9269B00180D3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		99CCA74219A9269B00180D3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = CookieCutterCutter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		99CCA74319A9269B00180D3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = CookieCutterCutter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		99CCA74519A9269B00180D3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CookieCutterCutterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CookieCutterCutter.app/CookieCutterCutter";
+			};
+			name = Debug;
+		};
+		99CCA74619A9269B00180D3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CookieCutterCutterTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CookieCutterCutter.app/CookieCutterCutter";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		99CCA72019A9269B00180D3A /* Build configuration list for PBXProject "CookieCutterCutter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99CCA73F19A9269B00180D3A /* Debug */,
+				99CCA74019A9269B00180D3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99CCA74119A9269B00180D3A /* Build configuration list for PBXNativeTarget "CookieCutterCutter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99CCA74219A9269B00180D3A /* Debug */,
+				99CCA74319A9269B00180D3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		99CCA74419A9269B00180D3A /* Build configuration list for PBXNativeTarget "CookieCutterCutterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99CCA74519A9269B00180D3A /* Debug */,
+				99CCA74619A9269B00180D3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 99CCA71D19A9269B00180D3A /* Project object */;
+}

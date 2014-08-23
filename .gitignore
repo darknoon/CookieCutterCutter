@@ -6,3 +6,20 @@
 #
 # Pods/
 
+# After making changes to this or any other .gitignore file, run
+# Tools/generate_hgignore.py <path to this directory>.
+
+.DS_Store
+*.pbxuser
+*.perspective
+*.perspectivev3
+
+*.mode1v3
+*.mode2v3
+
+*.xcodeproj/xcuserdata/*.xcuserdatad
+
+*.xccheckout
+*.xcuserdatad
+
+xcuserdata

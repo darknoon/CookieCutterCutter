@@ -21,6 +21,9 @@ class PointsView : UIView {
 
   override func drawRect(r: CGRect) {
     var ctx = UIGraphicsGetCurrentContext()
+    if ctx == nil {
+      return
+    }
     UIColor.orangeColor().setStroke()
     CGContextSetLineWidth(ctx, 6)
     if points.count > 0 {
@@ -107,15 +110,24 @@ class ViewController: UIViewController {
     pointsView.inProgress = false
     pointsView.points = points
     
-    //Create our shape
-    cutter = SCNShape(path: bezierPathFromPoints(), extrusionDepth: 10.0)
-
     let scene = SCNScene()
 
+    var camera = SCNCamera()
+    camera.xFov = 45
+    camera.yFov = 45
+
+    var cameraNode = SCNNode()
+    cameraNode.camera = camera
+    cameraNode.position = SCNVector3Make(0, 0, 10)
+
+    //Create our shape
+    cutter = SCNShape(path: bezierPathFromPoints(), extrusionDepth: 2.0)
+
     var cutterNode = SCNNode(geometry: cutter)
-    
+
     scene.rootNode.addChildNode(cutterNode)
-    
+    scene.rootNode.addChildNode(cameraNode)
+
     extrusionView.frame = self.view.bounds
     extrusionView.backgroundColor = UIColor.blueColor()
     extrusionView.scene = scene
@@ -133,10 +145,20 @@ class ViewController: UIViewController {
     if points.count == 0 {
         return path
     }
-    
+
+    var i = 0
     for p in points {
-        path.addLineToPoint(p)
+      var middle = self.view.center
+      let scaled = CGPoint(x: 0.01 * (p.x - middle.x), y: -0.01 * (p.y - middle.y));
+      if i==0 {
+        path.moveToPoint(scaled)
+      } else {
+        path.addLineToPoint(scaled)
+      }
+      i++
     }
+    path.closePath()
+
     return path
   }
 

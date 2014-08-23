@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication!, didFinishLaunchingWithOptions launchOptions: NSDictionary!) -> Bool {
 
-    window = UIWindow()
+    window = UIWindow(frame: UIScreen.mainScreen().applicationFrame)
 
     var vc : UIViewController = ViewController()
     window?.rootViewController = vc

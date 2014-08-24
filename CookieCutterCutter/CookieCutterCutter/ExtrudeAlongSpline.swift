@@ -10,14 +10,34 @@ import Foundation
 import CoreGraphics
 import SceneKit
 
-func getPrevNext(points:[CGPoint], i: Int) -> (SCNVector3, SCNVector3, SCNVector3) {
+func getPrevNext(points:[SCNVector3], i: Int) -> (SCNVector3, SCNVector3, SCNVector3) {
   var prev = modulo(i - 1, points.count);
   var next = modulo(i + 1, points.count);
   var curr = modulo(i    , points.count)
-  return (SCNVector3(points[prev]), SCNVector3(points[curr]), SCNVector3(points[next]))
+  return (points[prev], points[curr], points[next])
 }
 
-func extrudeAlong(points: [CGPoint], extrusionShape: [CGPoint], width: CGFloat, depth: CGFloat) -> SCNGeometry {
+func smoothPoints(points: [SCNVector3]) -> [SCNVector3] {
+  var smoothedPoints : [SCNVector3] = []
+  for i in 0 ..< points.count {
+    let (prev, curr, next) = getPrevNext(points, i)
+
+    let smoothed = 0.5 * curr + 0.25 * prev + 0.25 * next
+
+    smoothedPoints.append(smoothed)
+  }
+  return smoothedPoints
+}
+
+func extrudeAlong(points: [CGPoint], extrusionShape: [CGPoint], width: CGFloat, depth: CGFloat, smoothing: Int = 4) -> SCNGeometry {
+
+  var points = points.map({ SCNVector3($0) })
+  let extrusionShape = extrusionShape.map({ SCNVector3($0) })
+
+  for i in 0...smoothing {
+    points = smoothPoints(points)
+  }
+
   let width : Float = Float(width)
 
   var vertices : [SCNVector3] = []

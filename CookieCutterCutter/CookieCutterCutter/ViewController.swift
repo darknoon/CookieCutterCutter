@@ -49,10 +49,11 @@ class ViewController: UIViewController {
     self.view.addSubview(resetButton)
   }
     
-    @objc func resetButtonClick() {
+  @objc func resetButtonClick() {
         pointsView.points = []
-        viewDidLoad()
-    }
+        extrusionView.removeFromSuperview()
+        self.view.insertSubview(pointsView, belowSubview: resetButton)
+  }
     
     override func viewWillLayoutSubviews() {
     

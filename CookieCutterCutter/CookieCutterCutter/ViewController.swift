@@ -13,7 +13,7 @@ class ViewController: UIViewController {
 
   var cutter : SCNShape?
   var points : [CGPoint] = []
-  var resetButton : UIButton = UIButton(frame: CGRectMake(20, 20, 100, 50))
+  var resetButton : UIButton = UIButton(frame: CGRectMake(20, 20, 200, 50))
     
   //This is what the user sees first, added directly to self.view
   var pointsView = PointsView()
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     self.view.addSubview(pointsView)
     
     //Reset Button
-    resetButton.titleLabel.text = "Reset Drawing"
+    resetButton.setTitle("Reset Drawing", forState: UIControlState.Normal)
     resetButton.backgroundColor = UIColor.blackColor()
     resetButton.addTarget(self, action: "resetButtonClick", forControlEvents: UIControlEvents.TouchUpInside)
     

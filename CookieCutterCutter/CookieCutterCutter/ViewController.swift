@@ -183,21 +183,6 @@ class ViewController: UIViewController {
     pointsView.removeFromSuperview()
     self.view.insertSubview(extrusionView, belowSubview: resetButton)
 
-    //    CABasicAnimation *startAnim = [CABasicAnimation animationWithKeyPath:@"rotation"];
-//    startAnim.duration = 5;
-//    startAnim.repeatCount = MAXFLOAT;
-//    startAnim.toValue =[NSValue valueWithSCNVector4:SCNVector4Make(0.0, 0.0, 0.0,1.0)];
-//    startAnim.timingFunction =[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-
-
-    cutterNode.rotation = SCNVector4(x: 0.0, y: 1.0, z: 0.0, w: 0)
-
-    var loop = CABasicAnimation(keyPath: "rotation.w")
-    loop.toValue = NSNumber(double: 2.0 * M_PI)
-    loop.duration = 10
-    loop.repeatCount = 10000.0
-    cutterNode.addAnimation(loop, forKey: "esunto")
-
   }
 
 

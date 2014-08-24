@@ -96,30 +96,6 @@ func extrudeAlong(points: [CGPoint], extrusionShape: [CGPoint], width: CGFloat, 
         curr + applyBasis(basis,     down, shapeNext),
         next + applyBasis(basisNext, down, shapeNext) ) )
     }
-
-//    // Emit top
-//    if should.0 {
-//      emitQuad( (curr, next, curr + normal * width, next + normalNext * width ) )
-//    }
-//
-//    // Emit bottom
-//    if should.1 {
-//      emitQuad( (curr + normal * width + down, next + normalNext * width + down, curr + down, next + down) )
-//    }
-//
-//    // Emit left
-//    if should.2 {
-//      emitQuad( (curr + down, next + down, curr, next) )
-//    }
-//
-//    // Emit right
-//    if should.3 {
-//      emitQuad( (
-//        curr + down + normal * width,
-//        next + down + normalNext * width,
-//        curr + normal * width,
-//        next + normalNext * width) )
-//    }
   }
 
   let vertexSource = SCNGeometrySource(vertices: vertices, count: vertices.count)

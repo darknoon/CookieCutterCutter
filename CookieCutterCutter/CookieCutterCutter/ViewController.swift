@@ -77,16 +77,6 @@ class ViewController: UIViewController {
   }
 
   override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
-    var strings = points.map({(var t) -> String in
-      return NSStringFromCGPoint(t)
-    })
-    var s = NSArray(array: strings).componentsJoinedByString(", ")
-
-    for t in points {
-      s += NSStringFromCGPoint(t)
-    }
-    println("Touch points" + s)
-    println(strings.count)
 
     pointsView.inProgress = false
     pointsView.points = points

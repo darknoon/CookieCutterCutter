@@ -55,7 +55,7 @@ class ExtrusionView : SCNView {
         
         quat = quatRot * quatStart
         
-        println("quat in computeIncremental: \(quat)")
+        // println("quat in computeIncremental: \(quat)")
         
         currentMatrix = createMatrixFromQuaternion(quat)
     }
@@ -65,19 +65,19 @@ class ExtrusionView : SCNView {
         let touch : UITouch = touches.anyObject() as UITouch
         let location : CGPoint = touch.locationInView(self)
         
-        println("location: \(location)")
+        // println("location: \(location)")
         
         anchorPosition = SCNVector3Make(Float(location.x), Float(location.y), 0)
         anchorPosition = self.projectOntoSurface(anchorPosition!)
         
-        println("quatstart: \(quatStart)")
-        println("quat \(quat)")
-        println("anchorPosition after update: \(anchorPosition)")
+        // println("quatstart: \(quatStart)")
+        // println("quat \(quat)")
+        // println("anchorPosition after update: \(anchorPosition)")
         
         //Why this?
         currentPosition = anchorPosition
         
-        println("currentPosition: \(currentPosition)")
+        // println("currentPosition: \(currentPosition)")
         
         quatStart = quat
     }

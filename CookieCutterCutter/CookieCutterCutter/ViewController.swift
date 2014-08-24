@@ -12,10 +12,13 @@ import SceneKit
 class ViewController: UIViewController {
 
   var cutter : SCNShape?
+  var points : [CGPoint] = []
     
+  //This is what the user sees first, added directly to self.view
   var pointsView = PointsView()
 
-  var extrusionView = SCNView(frame: CGRectZero, options: nil)
+  //This only gets displayed after we're done with the pointsView (after touchesEnded
+    var extrusionView = ExtrusionView(frame: CGRectZero, options:nil)
 
   override init() {
       return super.init()
@@ -28,8 +31,6 @@ class ViewController: UIViewController {
   required init(coder aDecoder: NSCoder) {
       fatalError("init(coder:) has not been implemented")
   }
-
-  var points : [CGPoint] = []
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -48,8 +49,8 @@ class ViewController: UIViewController {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
-
-
+    
+    
   override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
     points = []
     pointsView.points = points
@@ -93,11 +94,13 @@ class ViewController: UIViewController {
 
     var cutterNode = SCNNode(geometry: cutter)
 
+    extrusionView.childObject = cutterNode
+    
     scene.rootNode.addChildNode(cutterNode)
     scene.rootNode.addChildNode(cameraNode)
 
     extrusionView.frame = self.view.bounds
-    extrusionView.backgroundColor = UIColor.blueColor()
+    extrusionView.backgroundColor = UIColor.greenColor()
     extrusionView.scene = scene
     
     pointsView.removeFromSuperview()

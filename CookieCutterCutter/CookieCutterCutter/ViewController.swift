@@ -13,12 +13,13 @@ class ViewController: UIViewController {
 
   var cutter : SCNShape?
   var points : [CGPoint] = []
+  var resetButton : UIButton = UIButton(frame: CGRectMake(20, 20, 100, 50))
     
   //This is what the user sees first, added directly to self.view
   var pointsView = PointsView()
 
   //This only gets displayed after we're done with the pointsView (after touchesEnded
-    var extrusionView = ExtrusionView(frame: CGRectZero, options:nil)
+  var extrusionView = ExtrusionView(frame: CGRectZero, options:nil)
 
   override init() {
       return super.init()
@@ -39,8 +40,19 @@ class ViewController: UIViewController {
     pointsView.frame = self.view.frame
     pointsView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
     self.view.addSubview(pointsView)
-
+    
+    //Reset Button
+    resetButton.titleLabel.text = "Reset Drawing"
+    resetButton.backgroundColor = UIColor.blackColor()
+    resetButton.addTarget(self, action: "resetButtonClick", forControlEvents: UIControlEvents.TouchUpInside)
+    
+    self.view.addSubview(resetButton)
   }
+    
+    @objc func resetButtonClick() {
+        pointsView.points = []
+        viewDidLoad()
+    }
     
     override func viewWillLayoutSubviews() {
     
@@ -104,7 +116,7 @@ class ViewController: UIViewController {
     extrusionView.scene = scene
     
     pointsView.removeFromSuperview()
-    self.view.addSubview(extrusionView)
+    self.view.insertSubview(extrusionView, belowSubview: resetButton)
 
   }
     

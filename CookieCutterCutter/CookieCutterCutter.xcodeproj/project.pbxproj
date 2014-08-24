@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		28D7B6D119A95A580056B54B /* ExtrusionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7B6D019A95A580056B54B /* ExtrusionView.swift */; };
 		28D7B6D319A95A6F0056B54B /* PointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7B6D219A95A6F0056B54B /* PointsView.swift */; };
+		28D7B6D519A986040056B54B /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7B6D419A986040056B54B /* Util.swift */; };
 		99CCA72B19A9269B00180D3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CCA72A19A9269B00180D3A /* AppDelegate.swift */; };
 		99CCA72D19A9269B00180D3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CCA72C19A9269B00180D3A /* ViewController.swift */; };
 		99CCA73219A9269B00180D3A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99CCA73119A9269B00180D3A /* Images.xcassets */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		28D7B6D019A95A580056B54B /* ExtrusionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtrusionView.swift; sourceTree = "<group>"; };
 		28D7B6D219A95A6F0056B54B /* PointsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
+		28D7B6D419A986040056B54B /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		99CCA72519A9269B00180D3A /* CookieCutterCutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookieCutterCutter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99CCA72919A9269B00180D3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99CCA72A19A9269B00180D3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				28D7B6D019A95A580056B54B /* ExtrusionView.swift */,
 				28D7B6D219A95A6F0056B54B /* PointsView.swift */,
 				99CCA72819A9269B00180D3A /* Supporting Files */,
+				28D7B6D419A986040056B54B /* Util.swift */,
 			);
 			path = CookieCutterCutter;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			files = (
 				28D7B6D119A95A580056B54B /* ExtrusionView.swift in Sources */,
 				99CCA72D19A9269B00180D3A /* ViewController.swift in Sources */,
+				28D7B6D519A986040056B54B /* Util.swift in Sources */,
 				99CCA72B19A9269B00180D3A /* AppDelegate.swift in Sources */,
 				28D7B6D319A95A6F0056B54B /* PointsView.swift in Sources */,
 			);

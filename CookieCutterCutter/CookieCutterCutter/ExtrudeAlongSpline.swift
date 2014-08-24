@@ -45,15 +45,31 @@ func extrudeAlong(points: [CGPoint], extrusionShape: [CGPoint], width: CGFloat, 
 
     let normal1 =  normalize(cross(q.1 - q.0, q.2 - q.0))
 
+    println("  facet normal \(normal1.toSTL())")
     // Tri strip steaks
+
+    println("    outer loop")
 
     vertices += [q.0, q.1, q.2]
     normals  += [normal1, normal1, normal1]
     elements += [elemIdx++, elemIdx++, elemIdx++]
 
+    println("      vertex \(q.0.toSTL())")
+    println("      vertex \(q.1.toSTL())")
+    println("      vertex \(q.2.toSTL())")
+
     vertices += [q.2, q.1, q.3]
     normals  += [normal1, normal1, normal1]
     elements += [elemIdx++, elemIdx++, elemIdx++]
+
+    println("      vertex \(q.2.toSTL())")
+    println("      vertex \(q.1.toSTL())")
+    println("      vertex \(q.3.toSTL())")
+
+
+    println("    endloop")
+
+    println("  endfacet")
   }
 
   for i in 0 ..< points.count {

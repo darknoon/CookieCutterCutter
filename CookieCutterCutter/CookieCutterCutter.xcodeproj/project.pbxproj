@@ -10,7 +10,8 @@
 		28BA8F7119A9AB530013703A /* GLKitImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 28BA8F6F19A9AB530013703A /* GLKitImport.m */; };
 		28D7B6D119A95A580056B54B /* ExtrusionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7B6D019A95A580056B54B /* ExtrusionView.swift */; };
 		28D7B6D319A95A6F0056B54B /* PointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7B6D219A95A6F0056B54B /* PointsView.swift */; };
-		28D7B6D519A986040056B54B /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D7B6D419A986040056B54B /* Util.swift */; };
+		9932035119A9CC8B006E8197 /* ExtrudeAlongSpline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9932035019A9CC8B006E8197 /* ExtrudeAlongSpline.swift */; };
+		9932035319A9CC9D006E8197 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9932035219A9CC9D006E8197 /* Util.swift */; };
 		99CCA72B19A9269B00180D3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CCA72A19A9269B00180D3A /* AppDelegate.swift */; };
 		99CCA72D19A9269B00180D3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CCA72C19A9269B00180D3A /* ViewController.swift */; };
 		99CCA73219A9269B00180D3A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99CCA73119A9269B00180D3A /* Images.xcassets */; };
@@ -33,7 +34,8 @@
 		28BA8F7019A9AB530013703A /* GLKitImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLKitImport.h; sourceTree = "<group>"; };
 		28D7B6D019A95A580056B54B /* ExtrusionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtrusionView.swift; sourceTree = "<group>"; };
 		28D7B6D219A95A6F0056B54B /* PointsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
-		28D7B6D419A986040056B54B /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		9932035019A9CC8B006E8197 /* ExtrudeAlongSpline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtrudeAlongSpline.swift; sourceTree = "<group>"; };
+		9932035219A9CC9D006E8197 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		99CCA72519A9269B00180D3A /* CookieCutterCutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookieCutterCutter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99CCA72919A9269B00180D3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99CCA72A19A9269B00180D3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,11 +87,12 @@
 			children = (
 				99CCA72A19A9269B00180D3A /* AppDelegate.swift */,
 				99CCA72C19A9269B00180D3A /* ViewController.swift */,
-				99CCA73119A9269B00180D3A /* Images.xcassets */,
 				28D7B6D019A95A580056B54B /* ExtrusionView.swift */,
+				9932035019A9CC8B006E8197 /* ExtrudeAlongSpline.swift */,
+				9932035219A9CC9D006E8197 /* Util.swift */,
 				28D7B6D219A95A6F0056B54B /* PointsView.swift */,
+				99CCA73119A9269B00180D3A /* Images.xcassets */,
 				99CCA72819A9269B00180D3A /* Supporting Files */,
-				28D7B6D419A986040056B54B /* Util.swift */,
 				28BA8F6F19A9AB530013703A /* GLKitImport.m */,
 				28BA8F7019A9AB530013703A /* GLKitImport.h */,
 				28BA8F6E19A9AB530013703A /* CookieCutterCutter-Bridging-Header.h */,
@@ -223,9 +226,10 @@
 			files = (
 				28BA8F7119A9AB530013703A /* GLKitImport.m in Sources */,
 				28D7B6D119A95A580056B54B /* ExtrusionView.swift in Sources */,
+				9932035319A9CC9D006E8197 /* Util.swift in Sources */,
 				99CCA72D19A9269B00180D3A /* ViewController.swift in Sources */,
-				28D7B6D519A986040056B54B /* Util.swift in Sources */,
 				99CCA72B19A9269B00180D3A /* AppDelegate.swift in Sources */,
+				9932035119A9CC8B006E8197 /* ExtrudeAlongSpline.swift in Sources */,
 				28D7B6D319A95A6F0056B54B /* PointsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

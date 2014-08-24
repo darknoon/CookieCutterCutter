@@ -42,7 +42,7 @@ class ExtrusionView : SCNView {
             P.z = 0
         }
         
-        return normalize(P, length(P))
+        return normalize(P)
     }
     
     func computeIncremental() {
@@ -51,7 +51,7 @@ class ExtrusionView : SCNView {
         let angle : Float = acosf(dot1)
         
         var quatRot = SCNQuaternion(axis: axis, angle: angle)
-        quatRot = normalize(quatRot, length(quatRot))
+        quatRot = normalize(quatRot)
         
         quat = quatRot * quatStart
         

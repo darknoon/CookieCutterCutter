@@ -90,9 +90,73 @@ class ViewController: UIViewController {
     cameraNode.position = SCNVector3Make(0, 0, 10)
 
     //Create our shape
-    cutter = SCNShape(path: bezierPathFromPoints(), extrusionDepth: 2.0)
+    var middle = self.view.center
 
-    var cutterNode = SCNNode(geometry: cutter)
+    let scale : CGFloat = 0.01
+
+    // Convert coordinates to what we'll use for the geometry
+    let scaledPoints = points.map { (p) -> CGPoint in
+      let scaled = CGPoint(x: scale * (p.x - middle.x), y: -scale * (p.y - middle.y));
+      return scaled
+    }
+
+    let depth : CGFloat = 1
+
+    // As ratios
+    let cut : CGFloat = 0.2
+    let shelfDepth : CGFloat = 0.2
+    let width: CGFloat = 0.2
+
+    // Scaled by depth, in 1x1 box
+    /*
+
+
+           Width
+     B-----------------C
+     |                 |
+     |                 |
+     |  Top            |  ShelfDepth
+     |                 |
+     |                 |
+     |    E------------D
+     |    |
+     |    |
+     |    |
+     |    |
+     |    |             
+     |    |             
+     A----F
+        Cut
+
+    */
+
+    var profile : [CGPoint] = [
+      CGPoint(x: 0.0, y: 0.0), // A
+      CGPoint(x: 0.0, y: 1.0), // B
+      CGPoint(x: 1.0, y: 1.0), // C
+      CGPoint(x: 1.0, y: 1.0 - shelfDepth), // D
+      CGPoint(x: cut, y: 1.0 - shelfDepth), // E
+      CGPoint(x: cut, y: 0.0), // F
+    ]
+
+    var cutterNode = SCNNode(geometry: extrudeAlong(scaledPoints, profile, width, depth))
+
+    var material = SCNMaterial()
+    material.diffuse.contents = UIColor.orangeColor()
+    material.specular.contents = UIColor.whiteColor()
+
+    //TODO: delete
+    material.doubleSided = true
+
+    cutterNode.geometry.materials = [material]
+
+    var lightNode = SCNNode()
+    var light = SCNLight()
+    light.type = SCNLightTypeOmni
+    lightNode.light = light
+    light.attenuationEndDistance = 100
+    lightNode.position = SCNVector3(x: 0, y: 0, z: 20)
+    scene.rootNode.addChildNode(lightNode)
 
     extrusionView.childObject = cutterNode
     
@@ -100,38 +164,30 @@ class ViewController: UIViewController {
     scene.rootNode.addChildNode(cameraNode)
 
     extrusionView.frame = self.view.bounds
-    extrusionView.backgroundColor = UIColor.greenColor()
+    extrusionView.backgroundColor = UIColor.whiteColor()
     extrusionView.scene = scene
+
     
     pointsView.removeFromSuperview()
     self.view.addSubview(extrusionView)
 
-  }
-    
-    
-  func bezierPathFromPoints() -> UIBezierPath {
-    
-    var path = UIBezierPath()
-        
-    if points.count == 0 {
-        return path
-    }
+    //    CABasicAnimation *startAnim = [CABasicAnimation animationWithKeyPath:@"rotation"];
+//    startAnim.duration = 5;
+//    startAnim.repeatCount = MAXFLOAT;
+//    startAnim.toValue =[NSValue valueWithSCNVector4:SCNVector4Make(0.0, 0.0, 0.0,1.0)];
+//    startAnim.timingFunction =[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
 
-    var i = 0
-    for p in points {
-      var middle = self.view.center
-      let scaled = CGPoint(x: 0.01 * (p.x - middle.x), y: -0.01 * (p.y - middle.y));
-      if i==0 {
-        path.moveToPoint(scaled)
-      } else {
-        path.addLineToPoint(scaled)
-      }
-      i++
-    }
-    path.closePath()
 
-    return path
+    cutterNode.rotation = SCNVector4(x: 0.0, y: 1.0, z: 0.0, w: 0)
+
+    var loop = CABasicAnimation(keyPath: "rotation.w")
+    loop.toValue = NSNumber(double: 2.0 * M_PI)
+    loop.duration = 10
+    loop.repeatCount = 10000.0
+    cutterNode.addAnimation(loop, forKey: "esunto")
+
   }
+
 
 }
 

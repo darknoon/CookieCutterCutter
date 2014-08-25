@@ -29,7 +29,42 @@ func smoothPoints(points: [SCNVector3]) -> [SCNVector3] {
   return smoothedPoints
 }
 
-func extrudeAlong(points: [CGPoint], extrusionShape: [CGPoint], width: CGFloat, depth: CGFloat, smoothing: Int = 4) -> SCNGeometry {
+func createSTLString(#trianglePoints: [SCNVector3], #normals: [SCNVector3]) -> String {
+
+  var stl = ""
+
+  let println = {(a : String) in
+    stl += a + "\n"
+  }
+
+  println("solid cutter")
+  for i in 0 ..< trianglePoints.count / 3 {
+    var normal = normals[3 * i]
+
+    println("  facet normal \(normal.toSTL())")
+    println("    outer loop")
+
+    for j in 3 * i ..< 3 * (i + 1) {
+      var vertex = trianglePoints[j]
+      println("      vertex \(vertex.toSTL())")
+    }
+
+    println("    endloop")
+    println("  endfacet")
+
+  }
+  println("endsolid")
+
+  return stl
+}
+
+struct Model {
+  let vertices : [SCNVector3]
+  let normals : [SCNVector3]
+  let elements : [UInt32]
+}
+
+func extrudeAlong(points: [CGPoint], extrusionShape: [CGPoint], width: CGFloat, depth: CGFloat, smoothing: Int = 4) -> Model {
 
   var points = points.map({ SCNVector3($0) })
   let extrusionShape = extrusionShape.map({ SCNVector3($0) })
@@ -62,34 +97,15 @@ func extrudeAlong(points: [CGPoint], extrusionShape: [CGPoint], width: CGFloat, 
   }
 
   func emitQuad(q: (SCNVector3, SCNVector3, SCNVector3, SCNVector3)) {
-
-    let normal1 =  normalize(cross(q.1 - q.0, q.2 - q.0))
-
-    println("  facet normal \(normal1.toSTL())")
-    // Tri strip steaks
-
-    println("    outer loop")
+    let normal =  normalize(cross(q.1 - q.0, q.2 - q.0))
 
     vertices += [q.0, q.1, q.2]
-    normals  += [normal1, normal1, normal1]
+    normals  += [normal, normal, normal]
     elements += [elemIdx++, elemIdx++, elemIdx++]
-
-    println("      vertex \(q.0.toSTL())")
-    println("      vertex \(q.1.toSTL())")
-    println("      vertex \(q.2.toSTL())")
 
     vertices += [q.2, q.1, q.3]
-    normals  += [normal1, normal1, normal1]
+    normals  += [normal, normal, normal]
     elements += [elemIdx++, elemIdx++, elemIdx++]
-
-    println("      vertex \(q.2.toSTL())")
-    println("      vertex \(q.1.toSTL())")
-    println("      vertex \(q.3.toSTL())")
-
-
-    println("    endloop")
-
-    println("  endfacet")
   }
 
   for i in 0 ..< points.count {
@@ -98,9 +114,6 @@ func extrudeAlong(points: [CGPoint], extrusionShape: [CGPoint], width: CGFloat, 
     // Drawn curve normals
     var normal     = calculateNormal(i)
     var normalNext = calculateNormal(i + 1)
-
-
-    var should = (true, true, true, true)
 
     for j in 0 ..< extrusionShape.count {
       let (_, shapeCurr, shapeNext) = getPrevNext(extrusionShape, j)
@@ -118,16 +131,6 @@ func extrudeAlong(points: [CGPoint], extrusionShape: [CGPoint], width: CGFloat, 
     }
   }
 
-  let vertexSource = SCNGeometrySource(vertices: vertices, count: vertices.count)
-  let normalSource = SCNGeometrySource(normals: normals, count: normals.count)
-
-  var indexData = NSData(bytes: UnsafePointer<UInt32>(elements), length: elements.count * sizeof(UInt32))
-
-  let element = SCNGeometryElement(data: indexData,
-    primitiveType: SCNGeometryPrimitiveType.Triangles,
-    primitiveCount: elements.count / 3,
-    bytesPerIndex: sizeof(Int32))
-
-  return SCNGeometry(sources: [vertexSource, normalSource], elements: [element]);
+  return Model(vertices: vertices, normals: normals, elements: elements)
 }
 

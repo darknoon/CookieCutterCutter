@@ -9,11 +9,28 @@
 import UIKit
 import SceneKit
 
+func makeGeometry(m: Model) -> SCNGeometry {
+  let vertexSource = SCNGeometrySource(vertices: m.vertices, count: m.vertices.count)
+  let normalSource = SCNGeometrySource(normals: m.normals, count: m.normals.count)
+
+  var indexData = NSData(bytes: UnsafePointer<UInt32>(m.elements), length: m.elements.count * sizeof(UInt32))
+
+  let element = SCNGeometryElement(data: indexData,
+    primitiveType: SCNGeometryPrimitiveType.Triangles,
+    primitiveCount: m.elements.count / 3,
+    bytesPerIndex: sizeof(Int32))
+
+  return SCNGeometry(sources: [vertexSource, normalSource], elements: [element]);
+}
+
+
 class ViewController: UIViewController {
 
   var cutter : SCNShape?
   var points : [CGPoint] = []
   var resetButton : UIButton = UIButton(frame: CGRectMake(20, 20, 200, 50))
+
+  var stlString : String = ""
     
   //This is what the user sees first, added directly to self.view
   var pointsView = PointsView()
@@ -75,6 +92,18 @@ class ViewController: UIViewController {
     points.append(t.locationInView(self.view))
 
     pointsView.points = points
+  }
+
+  func saveSTLFile() {
+    if var foundDirs = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as? [String] {
+      if foundDirs.count > 0 {
+        let documents = foundDirs[0];
+        let path = documents.stringByAppendingPathComponent("CustomCookieCutter.stl")
+        println("saved STL file to \(path)")
+        var err : NSError?;
+        stlString.writeToFile(path, atomically: true, encoding: NSUTF8StringEncoding, error: &err)
+      }
+    }
   }
 
   override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
@@ -142,7 +171,12 @@ class ViewController: UIViewController {
       CGPoint(x: cut, y: 0.0), // F
     ]
 
-    var cutterNode = SCNNode(geometry: extrudeAlong(scaledPoints, profile, width, depth))
+    let m = extrudeAlong(scaledPoints, profile, width, depth)
+
+    stlString = createSTLString(trianglePoints: m.vertices, normals: m.normals)
+    saveSTLFile()
+
+    var cutterNode = SCNNode(geometry: makeGeometry(m))
 
     var material = SCNMaterial()
     material.diffuse.contents = UIColor.orangeColor()

@@ -93,33 +93,7 @@ func extrudeAlong(points: [CGPoint], extrusionShape: [CGPoint], width: CGFloat, 
   func applyBasis(basisU: SCNVector3, basisV: SCNVector3, vector: SCNVector3) -> SCNVector3 {
     return vector.x * basisU + vector.y * basisV
   }
-    
-    func writeToSTLFile() {
-        
-        //SWIFT Example
-        
-        let cutterFile = "cutter.stl" //Eventually have them name it and export it as the name
-        let dirs : [String]? = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true) as? [String]
-        
-        if let directories = dirs {
-            let dir = directories[0]
-            let path = dir.stringByAppendingPathComponent(cutterFile)
-            let text = "some text"
-            
-            //writing
-            text.writeToFile(path, atomically: false, encoding: NSUTF8StringEncoding, error: nil)
-            
-            //reading
-            let text2 = String.stringWithContentsOfFile(path, encoding: NSUTF8StringEncoding, error: nil)
-        }
-        
-        
-        //OBJECTIVE C Example
-        
-        let fileManager : NSFileManager = NSFileManager()
-        
-        
-    }
+
 
   func emitQuad(q: (SCNVector3, SCNVector3, SCNVector3, SCNVector3)) {
     let normal =  normalize(cross(q.1 - q.0, q.2 - q.0))

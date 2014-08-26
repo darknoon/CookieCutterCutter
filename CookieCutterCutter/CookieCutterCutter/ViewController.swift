@@ -69,6 +69,7 @@ class ViewController: UIViewController {
   @objc func resetButtonClick() {
         pointsView.points = []
         extrusionView.removeFromSuperview()
+        extrusionView.scene = nil
         self.view.insertSubview(pointsView, belowSubview: resetButton)
   }
     

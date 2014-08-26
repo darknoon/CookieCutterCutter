@@ -87,11 +87,11 @@ func length(quat: SCNQuaternion) -> Float {
 //    return normalizeVector(vector, length(vector))
 //}
 
-func cross(firstVector: SCNVector3, secondVector: SCNVector3) -> SCNVector3 {
+func cross(v1: SCNVector3, v2: SCNVector3) -> SCNVector3 {
 
-    let x = (firstVector.y * secondVector.z) - (firstVector.z * secondVector.y)
-    let y = (firstVector.z * secondVector.x) - (firstVector.x * secondVector.z)
-    let z = (firstVector.x * secondVector.y) - (firstVector.y * secondVector.x)
+    let x = v1.y * v2.z - v1.z * v2.y
+    let y = v1.z * v2.x - v1.x * v2.z
+    let z = v1.x * v2.y - v1.y * v2.x
 
     return SCNVector3(x: x, y: y, z: z)
 }

@@ -83,8 +83,6 @@ func extrudeAlong(points: [CGPoint], extrusionShape: [CGPoint], width: CGFloat, 
   func calculateNormal(i : Int) -> SCNVector3 {
     let (prev, curr, next) = getPrevNext(points, i)
 
-    let a : SCNVector3 = curr - next
-
     let na = inv(normalize(curr - next))
     let nb = inv(normalize(prev - curr))
     return (na + nb) * 0.5
@@ -95,6 +93,7 @@ func extrudeAlong(points: [CGPoint], extrusionShape: [CGPoint], width: CGFloat, 
   func applyBasis(basisU: SCNVector3, basisV: SCNVector3, vector: SCNVector3) -> SCNVector3 {
     return vector.x * basisU + vector.y * basisV
   }
+
 
   func emitQuad(q: (SCNVector3, SCNVector3, SCNVector3, SCNVector3)) {
     let normal =  normalize(cross(q.1 - q.0, q.2 - q.0))
